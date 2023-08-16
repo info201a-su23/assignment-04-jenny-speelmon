@@ -3,6 +3,10 @@ title: "A3: Incarceration"
 output: html_document
 ---
 
+```{r setup, echo=FALSE, message = FALSE} 
+source("summary.R")
+```
+
 ### Introduction
 
 An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
@@ -11,13 +15,7 @@ An introduction of the problem domain and a description of the variable(s) you a
 
 Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
-
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+The following findings provide a general idea on the numbers of Black people in prison and jail during 2013. The average value of Black prison population in 2013 across all counties  was `r avg_black_prison_function()`. The location with the highest Black prison population was `r location_highest_black_prison_function()` with a value of `r highest_black_prison_function()`. For jails in 2013, the average Black jail population across all counties was `r avg_black_jail_function()`. The location with the highest value of `r highest_black_jail_function()` was also `r location_highest_black_jail_function()`. These values show that on average, there are more Black people in prison than jail in 2013. Interestingly, the highest jail and prison count for Black people in 2013 was in the same location, suggesting that incarceration of Black people in this area was perhaps unusually high.
 
 ### The Dataset
 
@@ -46,7 +44,7 @@ When we say "clear" or "human readable" titles and labels, that means that you s
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, code = readLines("chart1_example.R")}
 ```
 
 ### Variable Comparison Chart
@@ -58,6 +56,9 @@ The second chart that you will create and include will show how two different (c
 - You must have clear x and y axis labels
 - The chart needs a clear title 
 - If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+
+```{r, echo = FALSE, message = FALSE, code = readLines("chart2_example.R")}
+```
 
 ### Map
 
