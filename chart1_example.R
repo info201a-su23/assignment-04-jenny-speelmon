@@ -34,4 +34,3 @@ line_graph <- ggplot(prison_ten_years, aes(x = year, y = black_prison_pop, color
        color = "Location") +
   theme_minimal()
 line_graph + scale_x_continuous(breaks = seq(2003, 2013, by = 1))
-#line_graph + scale_y_continuous(breaks = seq(5000, 30000, by = 2500))

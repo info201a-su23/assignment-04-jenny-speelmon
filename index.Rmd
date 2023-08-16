@@ -9,66 +9,33 @@ source("summary.R")
 
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+This data analysis will focus on the number of incarcerated Black people around the United States, whether they are in prison or in jail. Over the last decade, the Black Lives Matter (BLM) movement has gained quite the following, but the ideas backing this movement are not new. Many people around the country have been continuously fighting for equality and equity for Black people and other people of color. Some of the most famous stories often have to do with the mistreatment Black people have had from the justice system, whether that is regarding police brutality or racism during courthouse trials. Battling the systemic racism in this country is not a small matter, but using data analysis can be a significant help. Therefore, this project will be focused on finding areas of the country where Black people are incarcerated the most. The year 2013 will be focused on often, as it is the most recent year in the dataset without significantly large amounts of unavailable data. However, when possible, the year 2018 will be used, as it is the most recent. Analyzing this data during more recent years can provide a better idea of the issue today, in 2023, while looking at a larger time span can be informative of the history of how we have gotten to today.
 
 ### Summary Information
-
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
 
 The following findings provide a general idea on the numbers of Black people in prison and jail during 2013. The average value of Black prison population in 2013 across all counties  was `r avg_black_prison_function()`. The location with the highest Black prison population was `r location_highest_black_prison_function()` with a value of `r highest_black_prison_function()`. For jails in 2013, the average Black jail population across all counties was `r avg_black_jail_function()`. The location with the highest value of `r highest_black_jail_function()` was also `r location_highest_black_jail_function()`. These values show that on average, there are more Black people in prison than jail in 2013. Interestingly, the highest jail and prison count for Black people in 2013 was in the same location, suggesting that incarceration of Black people in this area was perhaps unusually high.
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+This data was collected by a nonprofit research and policy organization, the Vera Institute of Justice. Two Bureau of Justice Statistics data collections were used to create the datasets used in this analysis: the Census of Jails and the Annual Survey of Jails. The data is often updated as Vera accesses newly released data. Vera collected this data because incarceration research is often focused on a state-level basis, and they wanted to make the data more appropriate for county-level analysis. This, in turn, can help provide enough information to create more accurate claims on incarceration in the U.S. as a whole. The dataset about prison population per county and state has 36 features and 153811 observations. The dataset about jail population per county and state has 28 features and 153811 observations. Both of these datasets have limitations, however, because there are a lot of missing data points, whether that is over certain years or for specific counties. These limitations can be shown in some of the graphs below, as there are gaps in the visualizations. However, working with this data gives a lot of opportunity for reflection on the incarceration and justice systems in the United States. This analysis and the following graphs bring up many different questions regarding the reasoning behind high or low incarceration rates in certain areas of the country. While this analysis cannot make claims on the reasoning behind the numbers, as it does not provide context of why these people were put in jail or prison, it allows for more questions to be raised concerning the patterns and correlations in the data.
 
+### Trends Over Time Chart: Black Prison Population, 2003-2013
 
-### Trends Over Time Chart
-
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
+This line graph provides a visual representation of the Black prison population in ten cities across the United States. These ten cities had the highest number of Black people in prison by 2013, so this graph is intended to expand on each of those cities by showing the trend of how they arrived to those high numbers since 2003. While some of these cities did not have available data for each of the analyzed ten years, they each had enough to show a general trend. These cities all follow a decreasing pattern as they near 2013, which is interesting considering these cities had the highest numbers during 2013, meaning they were even higher in previous years. An outlier is that Cook County, Illinois was the only city to increase as it neared 2013. Additionally, Los Angeles County had a large increase in in 2005, followed by a large decrease by 2012. New York County had the most significant drop in numbers of Black people in prison. These specifics and patterns can be seen through this graph, making it an important addition to this analysis, allowing for research questions to emerge surrounding why these changes happened.
 
 ```{r, echo = FALSE, code = readLines("chart1_example.R")}
 ```
 
-### Variable Comparison Chart
+### Variable Comparison Chart: Black Prison and Jail Populations by Total Prison and Jail Populations, 1970-2018
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+This next chart is a combination of two graphs: one for the Black prison population and one for the Black jail population in Cook County, Illinois, as it has been established that this county has had large numbers of Black people in both jail and prison. These graphs compares the total prison and jail populations to the number of Black people in prison and jail from 1970 to 2018, the span of the data set. It is clear that there is a positive slope in both graphs, meaning as more people in general are incarcerated, more Black people are also incarcerated, which is a logical piece of insight. Additionally, it is clearly shown that there are more people in prison than jail. However, putting these two graphs together, it is apparent that the jail and prison rates in this county have a very similar trajectories. Therefore, it would be interesting for future data analysis projects to see if there is any cause and effect between the numbers of people in jail and in prison.
 
 ```{r, echo = FALSE, message = FALSE, code = readLines("chart2_example.R")}
 ```
 
-### Map
+### Map: Average Black Jail Population, 2018
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
+This map shows geographical distribution of the average Black jail population in the United States during 2018. The darker colors means a higher number of Black people in jail in the state, while the lighter colors mean a lower number, because a more saturated color can be recognized as a higher number by first glance. This map is shown because it reveals that more Black people are put in jail in northeastern and southern states of the country. Many states in the Midwest have extremely low numbers of Black people in jail, which could correlate with the number of Black people who live there. This is also reflected in the states with a higher number of Black people in jail, as there is a higher population of Black people in the south than the Midwest. The map gives some interesting insight on southern states, however, as they generally have the higher numbers. This could reflect the racism in the incarceration system in those states.
 
 ```{r, echo = FALSE, message = FALSE, code = readLines("map_example.R")}
 ```
